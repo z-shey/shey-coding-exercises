@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.shey.auth.mapper.AccountMapper">
+
+    <resultMap id="BaseResultMap" type="io.shey.auth.domain.Account">
+            <id property="accountId" column="account_id" jdbcType="BIGINT"/>
+            <result property="accountName" column="account_name" jdbcType="VARCHAR"/>
+            <result property="accountPassword" column="account_password" jdbcType="VARCHAR"/>
+            <result property="accountStatus" column="account_status" jdbcType="TINYINT"/>
+            <result property="accountDeleted" column="account_deleted" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="creator" column="creator" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updater" column="updater" jdbcType="VARCHAR"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        account_id,account_name,account_password,
+        account_status,account_deleted,create_time,
+        creator,update_time,updater,
+        remarks
+    </sql>
+</mapper>

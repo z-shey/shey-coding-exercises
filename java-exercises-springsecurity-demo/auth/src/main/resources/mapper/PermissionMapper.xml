@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.shey.auth.mapper.PermissionMapper">
+
+    <resultMap id="BaseResultMap" type="io.shey.auth.domain.Permission">
+        <id property="permissionId" column="permission_id" jdbcType="BIGINT"/>
+        <result property="permissionName" column="permission_name" jdbcType="VARCHAR"/>
+        <result property="permissionDescription" column="permission_description" jdbcType="VARCHAR"/>
+        <result property="permissionStatus" column="permission_status" jdbcType="TINYINT"/>
+        <result property="permissionDeleted" column="permission_deleted" jdbcType="TINYINT"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="creator" column="creator" jdbcType="VARCHAR"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="updater" column="updater" jdbcType="VARCHAR"/>
+        <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectPermissionByAccountID" resultType="java.lang.String">
+        SELECT p.permission_name
+        FROM account a
+                 INNER JOIN account_role ar ON a.account_id = ar.account_id
+                 INNER JOIN role r ON ar.role_id = r.role_id
+                 INNER JOIN role_permission rp ON r.role_id = rp.role_id
+                 INNER JOIN permission p ON rp.permission_id = p.permission_id
+        WHERE a.account_id = #{accountId} -- 具体的账号ID
+          AND a.account_deleted = 0
+          AND r.role_deleted = 0
+          AND p.permission_deleted = 0;
+    </select>
+
+    <sql id="Base_Column_List">
+        permission_id,permission_name,permission_description,
+        permission_status,permission_deleted,create_time,
+        creator,update_time,updater,
+        remarks
+    </sql>
+</mapper>

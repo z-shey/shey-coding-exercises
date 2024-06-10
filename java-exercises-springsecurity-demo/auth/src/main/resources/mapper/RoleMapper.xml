@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.shey.auth.mapper.RoleMapper">
+
+    <resultMap id="BaseResultMap" type="io.shey.auth.domain.Role">
+            <id property="roleId" column="role_id" jdbcType="BIGINT"/>
+            <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
+            <result property="roleDescription" column="role_description" jdbcType="VARCHAR"/>
+            <result property="roleStatus" column="role_status" jdbcType="TINYINT"/>
+            <result property="roleDeleted" column="role_deleted" jdbcType="TINYINT"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="creator" column="creator" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="updater" column="updater" jdbcType="VARCHAR"/>
+            <result property="remarks" column="remarks" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectRoleByAccountID" resultType="java.lang.String">
+        SELECT r.role_name, r.role_description
+        FROM account a
+                 INNER JOIN account_role ar ON a.account_id = ar.account_id
+                 INNER JOIN role r ON ar.role_id = r.role_id
+        WHERE a.account_id = #{accountId} -- 具体的账号ID
+          AND a.account_deleted = 0
+          AND r.role_deleted = 0;
+    </select>
+
+    <sql id="Base_Column_List">
+        role_id,role_name,role_description,
+        role_status,role_deleted,create_time,
+        creator,update_time,updater,
+        remarks
+    </sql>
+</mapper>
