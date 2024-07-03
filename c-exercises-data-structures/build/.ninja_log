@@ -1,0 +1,11 @@
+# ninja log v6
+42	155	7414201300873554	CMakeFiles/c_exercises_data_structures.dir/src/array/array.c.obj	e9b2aef5d31ab303
+62	178	7414201301063557	CMakeFiles/c_exercises_data_structures.dir/src/list/list.c.obj	657fa747bcda1b50
+104	204	7414201301483554	CMakeFiles/c_exercises_data_structures.dir/src/stack/stack.c.obj	7bb9959b8a0e0383
+83	200	7414201301283546	CMakeFiles/c_exercises_data_structures.dir/src/queue/queue.c.obj	9782daa18aa48dbd
+122	226	7414201301673554	CMakeFiles/c_exercises_data_structures.dir/src/tree/tree.c.obj	2fa9b9003670f00c
+4	101	7414200887654434	CMakeFiles/c_exercises_data_structures.dir/test/print/test.c.obj	a62db08819ac35f1
+24	213	7414201300693550	CMakeFiles/c_exercises_data_structures.dir/common/CuTest.c.obj	d1960f40bfecd02f
+215	341	7414193540804404	c_exercises_data_structures.exe	303c2ab1fdb57562
+81	215	7414200682009053	CMakeFiles/c_exercises_data_structures.dir/src/print/print.c.obj	9f217cfa263590cb
+4	143	7414201300493818	CMakeFiles/c_exercises_data_structures.dir/common/AllTests.c.obj	a31e42b64759c388

@@ -20,3 +20,5 @@ print(id(a), id(b))  # 输出 a 和 b 的内存地址
 print(c is d)
 print(c == d)
 print(id(c), id(d))  # 输出 c 和 d 的内存地址
+
+#%%
